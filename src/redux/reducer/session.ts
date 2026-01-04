@@ -22,10 +22,7 @@ const sessionSlice = createSlice({
   name: "session",
   initialState,
   reducers: {
-    setSession(
-      state,
-      action: PayloadAction<UserSession>
-    ) {
+    setSession( state,  action: PayloadAction<UserSession>) {
       state.userSession = action.payload;
     },
 
