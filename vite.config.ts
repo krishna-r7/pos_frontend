@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   define: {
-    __APP_ENV__: process.env.VITE_APP_NAME,
+    __APP_ENV__: JSON.stringify(process.env.VITE_APP_NAME)
   },
   plugins: [react(), tailwindcss(),],
     resolve: {
