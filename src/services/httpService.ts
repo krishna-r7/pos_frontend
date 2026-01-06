@@ -18,7 +18,7 @@ const instance: AxiosInstance = axios.create({
   maxBodyLength: Infinity,
   headers: {
     Accept: "application/json",
-    "Content-Type": "application/json",
+    // "Content-Type": "application/json",
   },
 });
 
@@ -27,7 +27,11 @@ const instance: AxiosInstance = axios.create({
  */
 instance.interceptors.request.use(
   (config) => {
+  //   if (config.data instanceof FormData) {
+  //   delete config.headers?.["Content-Type"];
+  // }
     const state: RootState = store.getState();
+    // console.log(state);
     const token = state.session?.userSession?.token;
 
     if (token && config.headers) {

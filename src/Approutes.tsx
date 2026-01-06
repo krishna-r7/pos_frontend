@@ -1,8 +1,10 @@
-
-import { Suspense } from "react";
 import routes from "@/routes";
-import { Routes, Route } from "react-router-dom";
+import { Suspense } from "react";
 import Login from "@/pages/login";
+import PublicRoute from "@/routes/public";
+import PrivateRoute from "@/routes/private";
+import { Routes, Route } from "react-router-dom";
+
 // import Dashboard from "@/pages/Cashier/Dashboard";
 
 function AppRoutes() {
@@ -19,13 +21,11 @@ function AppRoutes() {
             <Route
               key={path}
               path={path}
-              element={<Component />}
-
-              // element={<PrivateRoute Component={Component} roles={roles} />}
+              element={<PrivateRoute Component={Component} roles={roles} />}
             />
           ))}
           
-          <Route path="/"  element={<Login />} />  
+          <Route path="/"  element={<PublicRoute Component={Login} />} />  
 
         </Routes>
       </Suspense>

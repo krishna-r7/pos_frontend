@@ -4,9 +4,10 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export interface UserSession {
   token: string;
   user?: {
-    id: string;
+    _id: string;
     name: string;
     email?: string;
+    role: string;
   };
 }
 

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, LogOut } from 'lucide-react';
-import menuItems from "@/sidebar/sidebarCashier";
+import { Menu, Bell, LogOut } from 'lucide-react';
+import menuItems from "@/sidebar/admin";
 import { useNavigate } from 'react-router-dom';
 import useAuthSubmit from '@/hooks/useAuthSubmit';
+
 
 interface LayoutWrapperProps {
   children?: React.ReactNode;
 }
 
-const CashierWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
+const AdminWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
-   const { onLogout } = useAuthSubmit();
+  const { onLogout } = useAuthSubmit();
 
   // Close sidebar on mobile when clicking outside or on resize
   useEffect(() => {
@@ -36,7 +37,7 @@ const CashierWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
     navigate(href);
   };
 
-   const handleLogout = async () => {
+  const handleLogout = async () => {
     await onLogout();
   };
 
@@ -95,7 +96,7 @@ const CashierWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
               >
                 <Menu size={24} />
               </button>
-              <h1 className="text-lg sm:text-xl font-semibold text-gray-800">Cashier</h1>
+              <h1 className="text-lg sm:text-xl font-semibold text-gray-800">Admin</h1>
             </div>
             
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -141,4 +142,4 @@ const CashierWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
   );
 };
 
-export default CashierWrapper;
+export default AdminWrapper;
